@@ -10,7 +10,6 @@ public class MySqlConnection {
     private static final String password = "sapassword";
 
     public static Connection createConnection() {
-
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             System.out.println("Driver found");
@@ -21,11 +20,11 @@ public class MySqlConnection {
 
         try {
             Connection connection = DriverManager.getConnection(url, user, password);
-            System.out.println("Connected to databse");
+            System.out.println("Connected to database");
             return connection;
 
         } catch(SQLException e) {
-            System.out.println("Not connected to databse." + e.getMessage());
+            System.out.println("Not connected to database." + e.getMessage());
             return null;
         }
     }

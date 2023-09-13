@@ -2,8 +2,6 @@ package repository;
 
 import db.MySqlConnection;
 import models.Account;
-import services.AccountService;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

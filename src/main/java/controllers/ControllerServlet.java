@@ -8,15 +8,11 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import models.Account;
 import repository.AccountRepository;
-import services.AccountService;
 
 import java.io.IOException;
 
 @WebServlet("/ControllerServlet")
 public class ControllerServlet extends HttpServlet {
-
-    @Inject
-    private AccountService accountService;
 
 //    @Override
 //    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -26,6 +22,7 @@ public class ControllerServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
+        AccountRepository accountRepository = new AccountRepository();
         Account acc = new Account();
 
         acc.setAccount_id(req.getParameter("id"));
@@ -35,6 +32,6 @@ public class ControllerServlet extends HttpServlet {
         acc.setPhone(req.getParameter("phone"));
         acc.setStatus(Integer.parseInt(req.getParameter("status")));
 
-        accountService.create(acc);
+        accountRepository.create(acc);
     }
 }
