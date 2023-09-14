@@ -1,6 +1,5 @@
 package controllers;
 
-import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -10,15 +9,17 @@ import models.Account;
 import repository.AccountRepository;
 
 import java.io.IOException;
+import java.util.List;
 
-@WebServlet("/ControllerServlet")
-public class ControllerServlet extends HttpServlet {
+@WebServlet("/CreateAndGetAllAccount")
+public class CreateAndGetAllAccountController extends HttpServlet {
 
-//    @Override
-//    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-//        String action = req.getParameter("action");
-//
-//    }
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        AccountRepository accountRepository = new AccountRepository();
+        List<Account> accounts = accountRepository.getAll();
+
+    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{

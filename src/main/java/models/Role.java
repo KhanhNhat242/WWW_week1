@@ -11,15 +11,19 @@ public class Role {
     private String description;
     private int status;
 
-    public Role(String role_id) {
-        this.role_id = role_id;
-    }
+//    public Role(String role_id) {
+//        this.role_id = role_id;
+//    }
 
     public Role(String role_id, String role_name, String description, int status) {
         this.role_id = role_id;
         this.role_name = role_name;
         this.description = description;
         this.status = status;
+    }
+
+    public Role() {
+
     }
 
     public String getRole_id() {

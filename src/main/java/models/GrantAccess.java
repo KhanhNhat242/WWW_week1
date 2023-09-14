@@ -2,40 +2,36 @@ package models;
 
 import jakarta.persistence.*;
 
-@Entity
 @Table(name = "grant_access")
 public class GrantAccess {
-    @Id
-    private String role_id;
     private Is_Grant is_grant;
     private String note;
 
     @ManyToOne
     @JoinColumn(name = "account_id")
-    private Account account;
+    private Account account_id;
 
     @ManyToOne
     @JoinColumn(name = "role_id")
-    private Role roe;
+    private Role role_id;
 
-    public GrantAccess(String role_id) {
-        this.role_id = role_id;
-    }
-
-    public GrantAccess(String role_id, Is_Grant is_grant, String note, Account account, Role roe) {
-        this.role_id = role_id;
+    public GrantAccess(Is_Grant is_grant, String note, Account account_id, Role role_id) {
         this.is_grant = is_grant;
         this.note = note;
-        this.account = account;
-        this.roe = roe;
+        this.account_id = account_id;
+        this.role_id= role_id;
     }
 
-    public String getRole_id() {
+    public Role getRole() {
         return role_id;
     }
 
-    public void setRole_id(String role_id) {
+    public void setRole(Role role) {
         this.role_id = role_id;
+    }
+
+    public GrantAccess() {
+
     }
 
     public Is_Grant getIs_grant() {
@@ -54,30 +50,29 @@ public class GrantAccess {
         this.note = note;
     }
 
-    public Account getAccount() {
-        return account;
+    public Account getAccount_id() {
+        return account_id;
     }
 
-    public void setAccount(Account account) {
-        this.account = account;
+    public void setAccount_id(Account account_id) {
+        this.account_id = account_id;
     }
 
-    public Role getRoe() {
-        return roe;
+    public Role getRole_id() {
+        return role_id;
     }
 
-    public void setRoe(Role roe) {
-        this.roe = roe;
+    public void setRole_id(Role role_id) {
+        this.role_id = role_id;
     }
 
     @Override
     public String toString() {
         return "GrantAccess{" +
-                "role_id='" + role_id + '\'' +
-                ", is_grant=" + is_grant +
+                "is_grant=" + is_grant +
                 ", note='" + note + '\'' +
-                ", account=" + account +
-                ", roe=" + roe +
+                ", account_id=" + account_id +
+                ", role=" + role_id +
                 '}';
     }
 }

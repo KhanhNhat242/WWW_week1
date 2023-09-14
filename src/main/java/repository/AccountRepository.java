@@ -65,7 +65,7 @@ public class AccountRepository {
                 a.setPassword(resultSet.getString("password"));
                 a.setEmail(resultSet.getString("full_name"));
                 a.setFull_name(resultSet.getString("full_name"));
-                a.setFull_name(resultSet.getString("full_name"));
+                a.setStatus(resultSet.getInt("status"));
 
                 acc.add(a);
 
@@ -78,5 +78,27 @@ public class AccountRepository {
             System.out.println("--incorrect find. " + e.getMessage());
             return null;
         }
+    }
+
+    public boolean checkLogIn(String id, String pw){
+        String sql = "select * from account where account_id = ? and password = ?";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setString(1, id);
+            preparedStatement.setString(2, pw);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            System.out.println("--true");
+
+            return rs.next();
+
+        } catch(SQLException e) {
+            System.out.println("--false " + e.getMessage());
+        }
+
+        return false;
     }
 }

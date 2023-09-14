@@ -9,27 +9,7 @@
 </h1>
 <br/>
 <%--<a href="hello-servlet">Hello Servlet</a>--%>
-<form action="ControllerServlet" method="post">
-    <label>ID:</label>
-    <input name="id" type="text" />
-    <br />
-    <label>Full name:</label>
-    <input name="fullName" type="text" />
-    <br />
-    <label>Password:</label>
-    <input name="password" type="text" />
-    <br />
-    <label>Email:</label>
-    <input name="email" type="text" />
-    <br />
-    <label>Phone:</label>
-    <input name="phone" type="text" />
-    <br />
-    <label>Status:</label>
-    <input name="status" type="text" />
-    <br />
-    <button type="submit">Add</button>
-</form>
-
+    <a href="signUp.jsp">Sign up</a>
+    <a href="logIn.jsp">Log in</a>
 </body>
 </html>
