@@ -21,6 +21,12 @@ public class Account {
         this.account_id = account_id;
     }
 
+    public Account(String full_name, String email, String phone) {
+        this.full_name = full_name;
+        this.email = email;
+        this.phone = phone;
+    }
+
     public Account(String account_id, String full_name, String password, String email, String phone, int status) {
         this.account_id = account_id;
         this.full_name = full_name;

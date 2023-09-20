@@ -32,7 +32,7 @@ public class AccountRepository {
     }
 
     public void delete(String id) {
-        String sql = "DELETE FROM account WHERE id = ?";
+        String sql = "DELETE FROM account WHERE account_id = ?";
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -63,12 +63,11 @@ public class AccountRepository {
                 a.setAccount_id(resultSet.getString("account_id"));
                 a.setFull_name(resultSet.getString("full_name"));
                 a.setPassword(resultSet.getString("password"));
-                a.setEmail(resultSet.getString("full_name"));
-                a.setFull_name(resultSet.getString("full_name"));
+                a.setEmail(resultSet.getString("email"));
+                a.setPhone(resultSet.getString("phone"));
                 a.setStatus(resultSet.getInt("status"));
 
                 acc.add(a);
-
             }
 
             System.out.println("--correct find");
@@ -80,6 +79,34 @@ public class AccountRepository {
         }
     }
 
+    public Account findById(String id){
+        String sql = "select * from account where account_id = ?";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, id);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                Account a = new Account();
+
+                a.setAccount_id(resultSet.getString("account_id"));
+                a.setFull_name(resultSet.getString("full_name"));
+                a.setPassword(resultSet.getString("password"));
+                a.setEmail(resultSet.getString("email"));
+                a.setPhone(resultSet.getString("phone"));
+                a.setStatus(resultSet.getInt("status"));
+
+                return a;
+            }
+
+            System.out.println("--correct find");
+
+        } catch (SQLException e) {
+            System.out.println("--incorrect find. " + e.getMessage());
+        }
+        return null;
+    }
     public boolean checkLogIn(String id, String pw){
         String sql = "select * from account where account_id = ? and password = ?";
 
@@ -98,7 +125,25 @@ public class AccountRepository {
         } catch(SQLException e) {
             System.out.println("--false " + e.getMessage());
         }
-
         return false;
+    }
+    public void update(Account account, String id) {
+        String  sql = "UPDATE account SET full_name = ?, email = ?, phone = ? where account_id = ?";
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setString(1, account.getFull_name());
+            preparedStatement.setString(2, account.getEmail());
+            preparedStatement.setString(3, account.getPhone());
+            preparedStatement.setString(4, id);
+
+            preparedStatement.executeUpdate();
+
+            System.out.println("--correct update on database");
+
+        } catch(SQLException e) {
+            System.out.println("--incorrect update on database. " + e.getMessage());
+        }
     }
 }

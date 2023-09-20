@@ -14,12 +14,12 @@ import java.util.List;
 @WebServlet("/CreateAndGetAllAccount")
 public class CreateAndGetAllAccountController extends HttpServlet {
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        AccountRepository accountRepository = new AccountRepository();
-        List<Account> accounts = accountRepository.getAll();
-
-    }
+//    @Override
+////    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+////        AccountRepository accountRepository = new AccountRepository();
+////        String url = "/success.jsp";
+////        req.setAttribute("accounts", accountRepository.getAll());
+////    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{

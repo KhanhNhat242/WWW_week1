@@ -11,27 +11,27 @@
     <title>Sign up</title>
 </head>
 <body>
-<form action="CreateAndGetAllAccount" method="post">
-    <label>ID:</label>
-    <input name="id" type="text" />
-    <br />
-    <label>Full name:</label>
-    <input name="fullName" type="text" />
-    <br />
-    <label>Password:</label>
-    <input name="password" type="text" />
-    <br />
-    <label>Email:</label>
-    <input name="email" type="text" />
-    <br />
-    <label>Phone:</label>
-    <input name="phone" type="text" />
-    <br />
-    <label>Status:</label>
-    <input type="text" name="status">
-    <br />
-    <button type="submit">Add</button>
-    <button type="reset">CLear</button>
-</form>
+    <form action="CreateAndGetAllAccount" method="post">
+        <label>ID:</label>
+        <input name="id" type="text" />
+        <br />
+        <label>Full name:</label>
+        <input name="fullName" type="text" />
+        <br />
+        <label>Password:</label>
+        <input name="password" type="text" />
+        <br />
+        <label>Email:</label>
+        <input name="email" type="text" />
+        <br />
+        <label>Phone:</label>
+        <input name="phone" type="text" />
+        <br />
+        <label>Status:</label>
+        <input type="text" name="status">
+        <br />
+        <button type="submit">Add</button>
+        <button type="reset">CLear</button>
+    </form>
 </body>
 </html>
